@@ -1,8 +1,0 @@
-[workspace]
-members = [
-    "01-math-primitives/*",
-    "02-core-snarks/*",
-    "03-circom-patterns/*",
-    "04-zk-exploits/*"
-, "ZK_IN_RUST/MODUle_2", "ZK_IN_RUST/MODUle_2/elliptic_curve"]
-resolver = "2"
