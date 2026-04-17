@@ -1,14 +1,14 @@
-pragma circom 2.1.4;
+template Power(n) {
+    signal input a;
+    signal output out;
 
-// Create a circuit which takes an input 'a',(array of length 2 ) , then  implement power modulo 
-// and return it using output 'c'.
+    signal temp[n];
 
-// HINT: Non Quadratic constraints are not allowed. 
+    temp[0] <== a;
 
-template Pow() {
-   
-   // Your Code here.. 
+    for (var i = 1; i < n; i++) {
+        temp[i] <== temp[i-1] * a;
+    }
+
+    out <== temp[n-1];
 }
-
-component main = Pow();
-
