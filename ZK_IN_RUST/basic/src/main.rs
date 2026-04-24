@@ -16,6 +16,39 @@ fn dot_product(a: &[u64], b: &[u64]) -> u64 {
      .fold(0, |acc, val| add(acc, val))
 }
 
+struct fieldelement{
+    a:u64,
+    b:u64,
+
+}
+
+trait operation{
+    fn add(&self)->u64{
+        
+    }
+    fn mul(&self)->u64{
+        
+    }
+    fn sub(&self)->u64{
+        
+    }
+
+
+}
+
+impl operation for fieldelement{
+    fn add(&self)->u64{
+        self.a +self.b
+    }
+    fn mul(&self)->u64{
+        self.a *self.b
+    }
+    fn sub(&self)->u64{
+        self.a -self.b
+    }
+        
+    
+}
 
 fn build_witness() -> HashMap<String, u64> {
     // insert: "one"->1, "a"->3, "b"->4, "c"->12
@@ -53,4 +86,16 @@ fn main() {
     println!("mul(13,4)      = {}", mul(13, 4));
     println!("dot_product   = {}", dot_product(&l_row, &witness));
   
+}
+
+//Write unit tests verifying `(a + b) % p == (b + a) % p` (commutativity).
+#[cfg(test)]
+mod tests {
+    use super::*;   
+     #[test]
+    fn test_add_commutativity() {
+        let a = 13;
+        let b = 4;
+        assert_eq!(add(a, b), add(b, a));
+    }
 }
